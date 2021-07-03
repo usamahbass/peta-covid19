@@ -10,9 +10,8 @@ export default ({ mode }) => {
     server: {
       proxy: {
         "/api": {
-          target: process.env.VITE_APP_API,
+          target: process.env.VITE_APP_CORONA,
           changeOrigin: true,
-          rewrite: (path) => path.replace(/^\/api/, "/"),
         },
       },
     },

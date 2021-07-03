@@ -1,11 +1,10 @@
-import React from "react";
-import {
-  Modal,
-  ModalBody,
-  ModalContent,
-  ModalHeader,
-  ModalOverlay,
-} from "@chakra-ui/modal";
+import React, { useContext } from "react";
+import { Modal, ModalBody, ModalContent, ModalHeader } from "@chakra-ui/modal";
+import { ThemeToggle } from "~/components";
+import { Heading } from "@chakra-ui/layout";
+import { AppContext } from "~/context";
+import BaseMap from "./settings/base-map";
+import MarkerSettings from "./settings/marker-settings";
 
 interface ModalSettingProps {
   isOpen: boolean;
@@ -13,14 +12,24 @@ interface ModalSettingProps {
 }
 
 const ModalSettings = ({ isOpen, onClose }: ModalSettingProps) => {
+  const [context, setContext] = useContext(AppContext);
   return (
     <Modal size="full" onClose={onClose} isOpen={isOpen}>
-      <ModalOverlay />
-
       <ModalContent position="absolute" bottom="-60px" minH="60vh">
-        <ModalHeader>Pengaturan</ModalHeader>
+        <ModalHeader
+          display="flex"
+          alignItems="center"
+          justifyContent="space-between"
+        >
+          <Heading size="md">Pengaturan</Heading>
+          <ThemeToggle />
+        </ModalHeader>
 
-        <ModalBody>Haloo</ModalBody>
+        <ModalBody>
+          <BaseMap />
+
+          <MarkerSettings />
+        </ModalBody>
       </ModalContent>
     </Modal>
   );
