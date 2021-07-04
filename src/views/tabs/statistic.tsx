@@ -14,10 +14,10 @@ import { AppContext } from "~/context";
 import type { JenisKelaminType, KelompokUmurType } from "~/models";
 
 const Statistic = () => {
-  const [context] = useContext(AppContext);
+  const { state } = useContext(AppContext);
   const [loadMore, setLoadMore] = useState<Boolean | undefined>(false);
 
-  const data = context?.dataInfo;
+  const data = state?.dataInfo;
 
   const loadMoreIcon = loadMore ? <ArrowUp /> : <ArrowDown />;
   return (

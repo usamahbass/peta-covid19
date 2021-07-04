@@ -8,16 +8,17 @@ import { LeafletControl } from "~/components";
 import ModalSettings from "./modal-settings";
 import { AppContext } from "~/context";
 import { Stack } from "@chakra-ui/layout";
+import { setPosition } from "~/context/action";
 
 export const LayerRight = () => {
   const { onOpen, isOpen, onClose } = useDisclosure();
-  const [context, setContext] = useContext(AppContext);
+  const { state, dispatch } = useContext(AppContext);
 
   const map = useMap();
 
   const findLocation = () => {
     map.locate().on("locationfound", function (e) {
-      setContext((prevContext) => ({ ...prevContext, position: e.latlng }));
+      dispatch(setPosition(e.latlng));
       map.flyTo(e.latlng, 10, {
         animate: true,
       });
@@ -46,7 +47,7 @@ export const LayerRight = () => {
             />
           </Tooltip>
 
-          {context?.position && (
+          {state?.position && (
             <Tooltip label="Kamu" placement="left-start" hasArrow>
               <IconButton aria-label="Lokasi" rounded="xl" icon={<User />} />
             </Tooltip>

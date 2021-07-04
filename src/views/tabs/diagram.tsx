@@ -1,13 +1,5 @@
 import React, { useContext, useState } from "react";
-import {
-  Pie,
-  ResponsiveContainer,
-  Tooltip,
-  PieChart,
-  Cell,
-  Bar,
-  BarChart,
-} from "recharts";
+import { Pie, Tooltip, PieChart, Cell, Bar, BarChart } from "recharts";
 import { Box } from "@chakra-ui/layout";
 import { Select } from "@chakra-ui/select";
 import { Image } from "@chakra-ui/image";
@@ -16,16 +8,16 @@ import { newArrayOfObj } from "~/utils";
 import ChooseSvg from "~/assets/svg/choose.svg";
 
 const Diagram = () => {
-  const [context] = useContext(AppContext);
+  const { state } = useContext(AppContext);
   const [values, setValues] = useState("");
   const [tipe, setTipe] = useState("pie");
 
   let datas;
 
   if (values === "jk") {
-    datas = newArrayOfObj(context?.dataInfo?.jenis_kelamin);
+    datas = newArrayOfObj(state?.dataInfo?.jenis_kelamin);
   } else {
-    datas = newArrayOfObj(context?.dataInfo?.kelompok_umur);
+    datas = newArrayOfObj(state?.dataInfo?.kelompok_umur);
   }
   const COLORS = ["#65BC1E", "#0B69ED", "#FCB605", "#D83439"];
 

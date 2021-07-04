@@ -13,10 +13,10 @@ const CurrentMarkerIcon = L.icon({
 });
 
 export const YourLocation = () => {
-  const [context] = useContext(AppContext);
+  const { state } = useContext(AppContext);
 
-  return context?.position ? (
-    <Marker icon={CurrentMarkerIcon} position={context?.position}>
+  return state?.position ? (
+    <Marker icon={CurrentMarkerIcon} position={state?.position}>
       <Popup>Kamu disini</Popup>
     </Marker>
   ) : null;

@@ -1,9 +1,10 @@
 import React, { useContext } from "react";
 import { Box, Text, RadioGroup, Stack, Radio, Divider } from "@chakra-ui/react";
 import { AppContext } from "~/context";
+import { setMarkerType } from "~/context/action";
 
 const MarkerSettings = () => {
-  const [context, setContext] = useContext(AppContext);
+  const { state, dispatch } = useContext(AppContext);
   return (
     <Box mb="5">
       <Box mb="3">
@@ -15,10 +16,8 @@ const MarkerSettings = () => {
       </Box>
 
       <RadioGroup
-        defaultValue={context?.markerType}
-        onChange={(value) =>
-          setContext((prevContext) => ({ ...prevContext, markerType: value }))
-        }
+        defaultValue={state?.markerType}
+        onChange={(value) => dispatch(setMarkerType(value))}
       >
         <Stack spacing={3} direction="column">
           <Radio colorScheme="primary" value="circlemarker">

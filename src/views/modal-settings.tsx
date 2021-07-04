@@ -1,10 +1,11 @@
-import React, { useContext } from "react";
+import React from "react";
 import { Modal, ModalBody, ModalContent, ModalHeader } from "@chakra-ui/modal";
 import { ThemeToggle } from "~/components";
 import { Heading } from "@chakra-ui/layout";
-import { AppContext } from "~/context";
+import PerfectScrollbar from "react-perfect-scrollbar";
 import BaseMap from "./settings/base-map";
 import MarkerSettings from "./settings/marker-settings";
+import LayerSettings from "./settings/layer-settings";
 
 interface ModalSettingProps {
   isOpen: boolean;
@@ -12,10 +13,14 @@ interface ModalSettingProps {
 }
 
 const ModalSettings = ({ isOpen, onClose }: ModalSettingProps) => {
-  const [context, setContext] = useContext(AppContext);
   return (
     <Modal size="full" onClose={onClose} isOpen={isOpen}>
-      <ModalContent position="absolute" bottom="-60px" minH="60vh">
+      <ModalContent
+        position="absolute"
+        bottom="-60px"
+        height="60vh"
+        minH="auto"
+      >
         <ModalHeader
           display="flex"
           alignItems="center"
@@ -25,10 +30,10 @@ const ModalSettings = ({ isOpen, onClose }: ModalSettingProps) => {
           <ThemeToggle />
         </ModalHeader>
 
-        <ModalBody>
+        <ModalBody overflow="auto" as={PerfectScrollbar}>
           <BaseMap />
-
           <MarkerSettings />
+          <LayerSettings />
         </ModalBody>
       </ModalContent>
     </Modal>

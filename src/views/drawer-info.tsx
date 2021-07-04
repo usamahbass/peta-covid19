@@ -18,7 +18,7 @@ interface DrawerInfoProps {
 }
 
 const DrawerInfo = ({ isOpen, onClose }: DrawerInfoProps) => {
-  const [context] = useContext(AppContext);
+  const { state } = useContext(AppContext);
 
   return (
     <Drawer onClose={onClose} isOpen={isOpen} size="md">
@@ -28,7 +28,7 @@ const DrawerInfo = ({ isOpen, onClose }: DrawerInfoProps) => {
           alignItems="center"
           justifyContent="space-between"
         >
-          <Heading size="md">Provinsi {context?.dataInfo?.key}</Heading>
+          <Heading size="md">Provinsi {state?.dataInfo?.key}</Heading>
           <ThemeToggle />
         </DrawerHeader>
         <Divider />

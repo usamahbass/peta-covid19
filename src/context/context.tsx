@@ -1,29 +1,23 @@
-import React, { useState, createContext, ReactNode } from "react";
-import { PropListDataModel } from "~/models";
-
-export const AppContext = createContext(null);
+import React, { createContext, Dispatch, ReactNode, useReducer } from "react";
+import { initalState, reducer, initialStateType } from "./reducer";
 
 interface ContextProps {
   children: ReactNode;
 }
 
-interface ContextType {
-  dataInfo: object | any;
-  basemap: string;
-  markerType: string;
-  position: null;
-}
+export const AppContext = createContext<{
+  state: initialStateType;
+  dispatch: Dispatch<any>;
+}>({
+  state: initalState,
+  dispatch: () => null,
+});
 
-export const AppContextProvider = ({ children }: ContextProps) => {
-  const [context, setContext] = useState<ContextType>({
-    dataInfo: {},
-    basemap: "googlemap",
-    markerType: "covid",
-    position: null,
-  });
+export const Store = ({ children }: ContextProps) => {
+  const [state, dispatch] = useReducer(reducer, initalState);
 
   return (
-    <AppContext.Provider value={[context, setContext]}>
+    <AppContext.Provider value={{ state, dispatch }}>
       {children}
     </AppContext.Provider>
   );

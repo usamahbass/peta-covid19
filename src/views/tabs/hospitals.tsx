@@ -19,11 +19,11 @@ const Hospitals = () => {
     "/dekontaminasi/hospitals",
     "dekontaminasi"
   );
-  const [context] = useContext(AppContext);
+  const { state } = useContext(AppContext);
 
   const hospitals =
     data &&
-    data?.filter((el) => el?.province.toUpperCase() === context?.dataInfo?.key);
+    data?.filter((el) => el?.province.toUpperCase() === state?.dataInfo?.key);
 
   if (loading) {
     return <Spinner display="block" mx="auto" mt="5" />;

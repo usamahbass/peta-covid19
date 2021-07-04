@@ -2,15 +2,15 @@ import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
 import { ThemeProvider } from "~/theme";
-import { AppContextProvider } from "./context";
+import { Store } from "./context";
 
 ReactDOM.render(
   <ThemeProvider>
-    <AppContextProvider>
+    <Store>
       <React.StrictMode>
         <App />
       </React.StrictMode>
-    </AppContextProvider>
+    </Store>
   </ThemeProvider>,
   document.getElementById("root")
 );

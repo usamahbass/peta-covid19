@@ -2,20 +2,21 @@ import React, { useContext } from "react";
 import { Marker, CircleMarker, useMap } from "react-leaflet";
 import { v4 as uuidv4 } from "uuid";
 import { AppContext } from "~/context";
+import { setDataInfo } from "~/context/action";
 import { PropListDataModel } from "~/models";
 import { COVID_MARKER, TIPE_MARKER } from "~/utils/constanst";
 
 interface MarkerSwitchProps {
   el: PropListDataModel;
-  onOpen: () => {};
+  onOpen: Function;
 }
 
 const MarkerSwitch = ({ el, onOpen }: MarkerSwitchProps) => {
   const map = useMap();
 
-  const [context, setContext] = useContext(AppContext);
+  const { state, dispatch } = useContext(AppContext);
 
-  const type = context?.markerType;
+  const type = state?.markerType;
 
   switch (type) {
     case TIPE_MARKER.DEFAULT:
@@ -27,10 +28,7 @@ const MarkerSwitch = ({ el, onOpen }: MarkerSwitchProps) => {
             click: (e) => {
               map.flyTo(e.latlng, 10);
               onOpen();
-              setContext((prevContext: any) => ({
-                ...prevContext,
-                dataInfo: el,
-              }));
+              dispatch(setDataInfo(el));
             },
           }}
         />
@@ -44,10 +42,7 @@ const MarkerSwitch = ({ el, onOpen }: MarkerSwitchProps) => {
             click: (e) => {
               map.flyTo(e.latlng, 10);
               onOpen();
-              setContext((prevContext: any) => ({
-                ...prevContext,
-                dataInfo: el,
-              }));
+              dispatch(setDataInfo(el));
             },
           }}
         />
@@ -63,10 +58,7 @@ const MarkerSwitch = ({ el, onOpen }: MarkerSwitchProps) => {
             click: (e) => {
               map.flyTo(e.latlng, 10);
               onOpen();
-              setContext((prevContext: any) => ({
-                ...prevContext,
-                dataInfo: el,
-              }));
+              dispatch(setDataInfo(el));
             },
           }}
         />
@@ -81,10 +73,7 @@ const MarkerSwitch = ({ el, onOpen }: MarkerSwitchProps) => {
             click: (e) => {
               map.flyTo(e.latlng, 10);
               onOpen();
-              setContext((prevContext: any) => ({
-                ...prevContext,
-                dataInfo: el,
-              }));
+              dispatch(setDataInfo(el));
             },
           }}
         />
