@@ -22,11 +22,15 @@ const MarkerSettings = () => {
       >
         <Stack spacing={3} direction="column">
           <Radio colorScheme="primary" value="circlemarker">
-            Cirle Marker
+            Circle Marker
           </Radio>
 
           <Radio colorScheme="primary" value="marker">
-            Marker
+            Default Marker
+          </Radio>
+
+          <Radio colorScheme="primary" value="covid">
+            Covid Marker
           </Radio>
         </Stack>
       </RadioGroup>

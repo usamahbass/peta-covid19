@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
-import { request } from "~/utils";
+import { request, requestDekontaminasi } from "~/utils";
 
-export const useAxios = (url: string) => {
+export const useAxios = (url: string, type: string) => {
   const [data, setData] = useState(null);
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -10,9 +10,12 @@ export const useAxios = (url: string) => {
     const fetchData = async () => {
       setLoading(true);
       try {
-        const response = await request.get(url);
+        const response =
+          type === "covid"
+            ? await request.get(url)
+            : await requestDekontaminasi.get(url);
 
-        setData(response.data.list_data);
+        setData(response.data.list_data || response.data);
       } catch (err) {
         setError(true);
       } finally {

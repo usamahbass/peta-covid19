@@ -11,13 +11,15 @@ interface ContextType {
   dataInfo: object | any;
   basemap: string;
   markerType: string;
+  position: null;
 }
 
 export const AppContextProvider = ({ children }: ContextProps) => {
   const [context, setContext] = useState<ContextType>({
     dataInfo: {},
     basemap: "googlemap",
-    markerType: "circlemarker",
+    markerType: "covid",
+    position: null,
   });
 
   return (

@@ -13,6 +13,11 @@ export default ({ mode }) => {
           target: process.env.VITE_APP_CORONA,
           changeOrigin: true,
         },
+        "/dekontaminasi": {
+          target: process.env.VITE_APP_DEKONTAMINASI,
+          changeOrigin: true,
+          rewrite: (path) => path.replace(/^\/dekontaminasi/, '')
+        },
       },
     },
   });

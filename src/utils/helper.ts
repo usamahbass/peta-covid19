@@ -7,3 +7,5 @@ export const newArrayOfObj = (array: any) => {
 
   return result;
 };
+
+export const nullChecker = (cell: string) => (!cell ? "-" : cell);

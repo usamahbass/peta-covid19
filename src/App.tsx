@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { MapContainer, TileLayer } from "react-leaflet";
 import { LayerRight, DynamicMarker } from "./views";
 import { AppContext } from "./context";
+import { YourLocation } from "./components";
 import "leaflet/dist/leaflet.css";
 import "react-leaflet-markercluster/dist/styles.min.css";
 import "react-perfect-scrollbar/dist/css/styles.css";
@@ -12,8 +13,8 @@ const App = () => {
     <MapContainer
       style={{ height: "100vh", width: "100%" }}
       center={[-0.789275, 113.921327]}
+      scrollWheelZoom={false}
       zoom={4.5}
-      maxZoom={20}
     >
       {context?.basemap === "googlemap" && (
         <TileLayer
@@ -31,6 +32,7 @@ const App = () => {
 
       <DynamicMarker />
       <LayerRight />
+      <YourLocation />
     </MapContainer>
   );
 };

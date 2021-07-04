@@ -3,7 +3,7 @@ import { Marker, CircleMarker, useMap } from "react-leaflet";
 import { v4 as uuidv4 } from "uuid";
 import { AppContext } from "~/context";
 import { PropListDataModel } from "~/models";
-import { TIPE_MARKER } from "~/utils/constanst";
+import { COVID_MARKER, TIPE_MARKER } from "~/utils/constanst";
 
 interface MarkerSwitchProps {
   el: PropListDataModel;
@@ -40,6 +40,25 @@ const MarkerSwitch = ({ el, onOpen }: MarkerSwitchProps) => {
         <CircleMarker
           key={uuidv4()}
           center={[el.lokasi?.lat, el.lokasi?.lon]}
+          eventHandlers={{
+            click: (e) => {
+              map.flyTo(e.latlng, 10);
+              onOpen();
+              setContext((prevContext: any) => ({
+                ...prevContext,
+                dataInfo: el,
+              }));
+            },
+          }}
+        />
+      );
+
+    case TIPE_MARKER.COVID:
+      return (
+        <Marker
+          key={uuidv4()}
+          icon={COVID_MARKER}
+          position={[el.lokasi?.lat, el.lokasi?.lon]}
           eventHandlers={{
             click: (e) => {
               map.flyTo(e.latlng, 10);
