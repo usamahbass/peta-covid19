@@ -15,7 +15,11 @@ import type { HospitalsProps } from "~/models";
 import { nullChecker } from "~/utils";
 
 const Hospitals = () => {
-  const { data, loading, error } = useAxios(
+  const {
+    data,
+    loading,
+    error,
+  }: { data: HospitalsProps; loading: boolean; error: boolean } = useAxios(
     "/dekontaminasi/hospitals",
     "dekontaminasi"
   );
@@ -30,11 +34,7 @@ const Hospitals = () => {
   }
 
   if (error) {
-    return (
-      <Text align="left">
-        maaf, server error.
-      </Text>
-    );
+    return <Text align="left">maaf, server error.</Text>;
   }
 
   if (hospitals?.length <= 0) {

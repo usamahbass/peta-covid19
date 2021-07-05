@@ -55,7 +55,7 @@ const Diagram = () => {
                 endAngle={0}
                 data={datas}
               >
-                {datas?.map((entry, i) => (
+                {datas?.map((entry: any, i: number) => (
                   <Cell key={`cell-${i}`} fill={COLORS[i % COLORS.length]} />
                 ))}
               </Pie>

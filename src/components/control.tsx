@@ -1,7 +1,7 @@
 import { useEffect, forwardRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { createElementHook, createControlHook } from "@react-leaflet/core";
-import { Control, DomUtil, DomEvent } from "leaflet";
+import { Control, DomUtil, DomEvent, LayerOptions } from "leaflet";
 
 const DumbControl = Control.extend({
   options: {
@@ -16,7 +16,7 @@ const DumbControl = Control.extend({
     return _controlDiv;
   },
 
-  onRemove(map) {
+  onRemove(map: LayerOptions | any) {
     if (this.options.onOff) {
       map.off(this.options.onOff, this.options.handleOff, this);
     }
@@ -25,7 +25,7 @@ const DumbControl = Control.extend({
   },
 });
 
-const createControl = (props, context) => {
+const createControl = (props: any, context: any) => {
   const instance = new DumbControl(props);
   return { instance, context: { ...context, overlayContainer: instance } };
 };
@@ -39,8 +39,8 @@ const useForceUpdate = () => {
   return () => setValue((value) => value + 1); // update the state to force render
 };
 
-const createLeafletControl = (useElement) => {
-  const Component = (props, ref) => {
+const createLeafletControl = (useElement: any) => {
+  const Component = (props: any, ref: any) => {
     const forceUpdate = useForceUpdate();
     const { instance } = useElement(props).current;
 

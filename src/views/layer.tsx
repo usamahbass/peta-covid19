@@ -24,9 +24,9 @@ let prevLayerClicked: LayerOptions | any = null;
 
 export const Layer = () => {
   const map = useMap();
-  const datas = GeoJsonIndo;
+  const datas: GeoJsonType | any = GeoJsonIndo;
 
-  const handleEachFeature = (feature: GeoJsonType, layer: LayerOptions) => {
+  const handleEachFeature = (feature: GeoJsonType | any, layer: LayerOptions): void => {
     layer.on({
       mouseover: (e) => {
         if (prevLayerClicked !== null) {

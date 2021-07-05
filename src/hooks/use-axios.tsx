@@ -2,9 +2,9 @@ import { useState, useEffect } from "react";
 import { request, requestDekontaminasi } from "~/utils";
 
 export const useAxios = (url: string, type: string) => {
-  const [data, setData] = useState(null);
-  const [error, setError] = useState(false);
-  const [loading, setLoading] = useState(false);
+  const [data, setData] = useState<any>(null);
+  const [error, setError] = useState<any>(false);
+  const [loading, setLoading] = useState<boolean>(false);
 
   useEffect(() => {
     const fetchData = async () => {

@@ -6,6 +6,7 @@ import {
   CheckboxGroup,
   Stack,
   Checkbox,
+  CheckboxGroupContext,
 } from "@chakra-ui/react";
 import { AppContext } from "~/context";
 import { setLayer } from "~/context/action";
@@ -25,7 +26,7 @@ const LayerSettings = () => {
 
       <CheckboxGroup
         defaultValue={state?.layer}
-        onChange={(layer) => dispatch(setLayer(layer))}
+        onChange={(layer: string[]): void => dispatch(setLayer(layer))}
       >
         <Stack spacing={3} direction="column">
           <Checkbox value="batas_prov">Batas Provinsi</Checkbox>
