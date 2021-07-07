@@ -1,11 +1,16 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
-import './index.css'
-import App from './App'
+import React from "react";
+import ReactDOM from "react-dom";
+import App from "./App";
+import { ThemeProvider } from "~/theme";
+import { Store } from "./context";
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-)
+  <ThemeProvider>
+    <Store>
+      <React.StrictMode>
+        <App />
+      </React.StrictMode>
+    </Store>
+  </ThemeProvider>,
+  document.getElementById("root")
+);
