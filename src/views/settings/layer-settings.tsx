@@ -30,6 +30,7 @@ const LayerSettings = () => {
       >
         <Stack spacing={3} direction="column">
           <Checkbox value="batas_prov">Batas Provinsi</Checkbox>
+          <Checkbox value="batas_kab">Batas Kab</Checkbox>
         </Stack>
       </CheckboxGroup>
     </Box>

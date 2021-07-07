@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React from "react";
 import {
   Drawer,
   DrawerContent,
@@ -19,7 +19,6 @@ import {
 import { Info } from "react-feather";
 import PerfectScrollbar from "react-perfect-scrollbar";
 import { ThemeToggle } from "~/components";
-import { AppContext } from "~/context";
 import TabsUser from "./user/tabs";
 
 interface DrawerUserProps {
@@ -28,8 +27,6 @@ interface DrawerUserProps {
 }
 
 const DrawerUser = ({ isOpen, onClose }: DrawerUserProps) => {
-  const { state } = useContext(AppContext);
-
   return (
     <Drawer onClose={onClose} isOpen={isOpen} size="md">
       <DrawerContent>

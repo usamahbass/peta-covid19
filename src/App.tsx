@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { MapContainer, TileLayer } from "react-leaflet";
-import { LayerRight, DynamicMarker, Layer } from "./views";
+import { LayerRight, DynamicMarker, Layer, LayerKab } from "./views";
 import { AppContext } from "./context";
 import { YourLocation } from "./components";
 import "leaflet/dist/leaflet.css";
@@ -28,9 +28,12 @@ const App = () => {
           subdomains={["mt0", "mt1", "mt2", "mt3"]}
         />
       )}
+
       {state.layer.map((el) => {
         if (el === "batas_prov") return <Layer />;
+        if (el === "batas_kab") return <LayerKab />;
       })}
+
       <DynamicMarker />
       <LayerRight />
       <YourLocation />

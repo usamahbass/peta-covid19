@@ -7,7 +7,7 @@ import {
 } from "@chakra-ui/react";
 import { Sun as SunIcon, Moon as MoonIcon } from "react-feather";
 
-export const ThemeToggle = () => {
+export const ThemeToggle = ({ ...rest }) => {
   const SwitchIcon = useColorModeValue(MoonIcon, SunIcon);
   const text = useColorModeValue("dark", "light");
   const { toggleColorMode: toggleMode } = useColorMode();
@@ -21,6 +21,7 @@ export const ThemeToggle = () => {
         variant="ghost"
         onClick={toggleMode}
         icon={<SwitchIcon />}
+        {...rest}
       />
     </Tooltip>
   );
