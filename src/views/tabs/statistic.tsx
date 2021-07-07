@@ -1,5 +1,6 @@
 import { Button } from "@chakra-ui/button";
 import React, { useContext, useState } from "react";
+import { useEffect } from "react";
 import {
   Smile,
   Frown,
@@ -11,15 +12,42 @@ import {
 } from "react-feather";
 import { StatsCard } from "~/components";
 import { AppContext } from "~/context";
-import type { JenisKelaminType, KelompokUmurType } from "~/models";
+import type {
+  JenisKelaminType,
+  KelompokUmurType,
+  ListDataType,
+  ProvModel,
+} from "~/models";
+import { request } from "~/utils";
 
-const Statistic = () => {
+interface StatisticProps {
+  user?: boolean;
+}
+
+const Statistic = ({ user }: StatisticProps) => {
   const { state } = useContext(AppContext);
   const [loadMore, setLoadMore] = useState<Boolean | undefined>(false);
-
-  const data = state?.dataInfo;
+  const [data, setData] = useState<ListDataType>();
 
   const loadMoreIcon = loadMore ? <ArrowUp /> : <ArrowDown />;
+
+  useEffect(() => {
+    if (user) {
+      async function getUserCovidArea() {
+        const response = await request.get<ProvModel>("/api/prov.json");
+        const result = response.data.list_data.find(
+          (el) => el.key === state.userArea.address.state.toUpperCase()
+        );
+
+        setData(result);
+      }
+
+      getUserCovidArea();
+    }
+    if (state.dataInfo) {
+      setData(state?.dataInfo);
+    }
+  }, [user, state.dataInfo]);
   return (
     <>
       <StatsCard

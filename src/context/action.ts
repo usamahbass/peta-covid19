@@ -1,3 +1,4 @@
+import { AreaUserType } from "~/models";
 import { TypesReducer } from "./type";
 
 export const setBaseMap = (value: string) => ({
@@ -23,4 +24,9 @@ export const setPosition = (position: object) => ({
 export const setLayer = (layer: string[]) => ({
   type: TypesReducer.SET_LAYER,
   payload: layer,
+});
+
+export const setUserArea = (userArea: AreaUserType) => ({
+  type: TypesReducer.SET_USER_AREA,
+  payload: userArea,
 });

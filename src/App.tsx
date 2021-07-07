@@ -14,7 +14,6 @@ const App = () => {
     <MapContainer
       style={{ height: "100vh", width: "100%" }}
       center={[-0.789275, 113.921327]}
-      scrollWheelZoom={false}
       zoom={4.5}
     >
       {state?.basemap === "googlemap" && (
@@ -23,20 +22,15 @@ const App = () => {
           subdomains={["mt0", "mt1", "mt2", "mt3"]}
         />
       )}
-
       {state?.basemap === "googlesatelite" && (
         <TileLayer
           url={"http://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}"}
           subdomains={["mt0", "mt1", "mt2", "mt3"]}
         />
       )}
-
-      {state?.layer?.map((el: string) => {
-        if (el === "batas_prov") {
-          return <Layer />;
-        }
+      {state.layer.map((el) => {
+        if (el === "batas_prov") return <Layer />;
       })}
-
       <DynamicMarker />
       <LayerRight />
       <YourLocation />

@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import axios from "axios";
 import { request, requestDekontaminasi } from "~/utils";
 
 export const useAxios = (url: string, type: string) => {
@@ -13,6 +14,8 @@ export const useAxios = (url: string, type: string) => {
         const response =
           type === "covid"
             ? await request.get(url)
+            : type === "other"
+            ? await axios.get(url)
             : await requestDekontaminasi.get(url);
 
         setData(response.data.list_data || response.data);

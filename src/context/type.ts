@@ -4,4 +4,5 @@ export enum TypesReducer {
   SET_MARKER_TYPE = "SET_MARKER_TYPE",
   SET_POSITION = "SET_POSITION",
   SET_LAYER = "SET_LAYER",
+  SET_USER_AREA = "SET_USER_AREA",
 }

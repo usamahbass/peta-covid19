@@ -14,7 +14,11 @@ import { useAxios } from "~/hooks";
 import type { HospitalsProps } from "~/models";
 import { nullChecker } from "~/utils";
 
-const Hospitals = () => {
+interface HospitalProps {
+  user?: boolean;
+}
+
+const Hospitals = ({ user }: HospitalProps) => {
   const {
     data,
     loading,
@@ -26,8 +30,11 @@ const Hospitals = () => {
   const { state } = useContext(AppContext);
 
   const hospitals =
-    data &&
-    data?.filter((el) => el?.province.toUpperCase() === state?.dataInfo?.key);
+    data && user
+      ? data?.filter((el) => el.province === state.userArea.address.state)
+      : data?.filter(
+          (el) => el?.province.toUpperCase() === state?.dataInfo?.key
+        );
 
   if (loading) {
     return <Spinner display="block" mx="auto" mt="5" />;

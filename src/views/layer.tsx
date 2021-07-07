@@ -2,7 +2,7 @@ import React from "react";
 import { GeoJSON, useMap } from "react-leaflet";
 import L, { Layer as LayerOptions } from "leaflet";
 import type { GeoJsonType } from "~/models";
-import GeoJsonIndo from "~/assets/json/idn_prov.json";
+import GeoJsonProv from "~/assets/json/idn_prov.json";
 
 const defaultStyle = {
   weight: 1,
@@ -24,9 +24,13 @@ let prevLayerClicked: LayerOptions | any = null;
 
 export const Layer = () => {
   const map = useMap();
-  const datas: GeoJsonType | any = GeoJsonIndo;
 
-  const handleEachFeature = (feature: GeoJsonType | any, layer: LayerOptions): void => {
+  const datas: GeoJsonType | any = GeoJsonProv;
+
+  const handleEachFeature = (
+    feature: GeoJsonType | any,
+    layer: LayerOptions
+  ): void => {
     layer.on({
       mouseover: (e) => {
         if (prevLayerClicked !== null) {
@@ -34,7 +38,11 @@ export const Layer = () => {
         }
 
         const layer = e.target;
-        layer.bindTooltip(feature?.properties?.Propinsi).openTooltip();
+        layer
+          .bindTooltip(
+            feature?.properties?.Propinsi || feature?.properties?.NAME_2
+          )
+          .openTooltip();
         layer.setStyle(activeStyle);
 
         if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {

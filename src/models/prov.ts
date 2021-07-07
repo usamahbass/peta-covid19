@@ -1,3 +1,32 @@
+export type ListDataType = {
+  key: string;
+  doc_count: number;
+  jumlah_kasus: number;
+  jumlah_sembuh: number;
+  jumlah_meninggal: number;
+  jumlah_dirawat: number;
+  jenis_kelamin: {
+    key: string;
+    doc_count: number;
+  }[];
+  kelompok_umur: {
+    key: string;
+    doc_count: number;
+    usia: {
+      value: number;
+    };
+  }[];
+  lokasi: {
+    lat: number;
+    lon: number;
+  };
+  penambahan: {
+    positif: number;
+    sembuh: number;
+    meninggal: number;
+  };
+};
+
 export type ProvModel = {
   last_date: number;
   current_data: number;

@@ -1,6 +1,6 @@
 import { Reducer } from "react";
 import type { LatLngExpression } from "leaflet";
-import type { PropListDataModel } from "~/models";
+import type { PropListDataModel, AreaUserType } from "~/models";
 import { TypesReducer } from "./type";
 
 export type initialStateType = {
@@ -9,6 +9,7 @@ export type initialStateType = {
   markerType: string;
   position: LatLngExpression | any;
   layer: string[];
+  userArea: AreaUserType;
 };
 
 export const initialState = {
@@ -17,6 +18,7 @@ export const initialState = {
   basemap: "googlemap",
   markerType: "covid",
   layer: ["batas_prov"],
+  userArea: null,
 };
 
 type ReducerActionType = { type: string; payload: {} | string };
@@ -36,5 +38,7 @@ export const reducer: Reducer<initialStateType | any, ReducerActionType> = (
       return { ...state, position: action.payload };
     case TypesReducer.SET_MARKER_TYPE:
       return { ...state, markerType: action.payload };
+    case TypesReducer.SET_USER_AREA:
+      return { ...state, userArea: action.payload };
   }
 };
