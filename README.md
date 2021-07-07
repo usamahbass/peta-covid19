@@ -4,9 +4,6 @@
 
 <img src="./src/assets/jpg/petacovid.jpg" />
 
-<br/>
-<br/>
-
 <h3>DEMO<h3>
 <a href="https://petacovid19.vercel.app">https://petacovid19.vercel.app</a>
 
