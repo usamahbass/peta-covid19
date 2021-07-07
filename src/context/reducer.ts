@@ -9,16 +9,16 @@ export type initialStateType = {
   markerType: string;
   position: LatLngExpression | any;
   layer: string[];
-  userArea: AreaUserType;
+  userArea: AreaUserType | any;
 };
 
 export const initialState = {
   position: null,
+  userArea: {},
   dataInfo: {},
   basemap: "googlemap",
   markerType: "covid",
   layer: ["batas_prov"],
-  userArea: null,
 };
 
 type ReducerActionType = { type: string; payload: {} | string };

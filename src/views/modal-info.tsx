@@ -62,7 +62,7 @@ const ModalInfo = ({ isOpen, onClose }: ModalProps) => {
             <Box mb="2">
               <Text>
                 Dekontaminasi:
-                <Link ml="2" href="https://dekontaminasi.com/" target="blank">
+                <Link ml="2" href="https://dekontaminasi.com" target="blank">
                   https://dekontaminasi.com
                 </Link>
               </Text>
