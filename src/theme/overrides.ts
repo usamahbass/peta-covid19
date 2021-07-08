@@ -17,4 +17,18 @@ export const overrides: ThemeOverride = {
   styles,
   textStyles,
   layerStyles,
+  components: {
+    Drawer: {
+      variants: {
+        alwaysOpen: {
+          dialog: {
+            pointerEvents: "auto",
+          },
+          dialogContainer: {
+            pointerEvents: "none",
+          },
+        },
+      },
+    },
+  },
 };

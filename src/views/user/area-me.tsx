@@ -7,15 +7,13 @@ const AreaMe = () => {
   const { state } = useContext(AppContext);
   const [geospasialInfo, setGeoSpasialInfo] = useState<boolean>(false);
 
-  console.log(state.userArea, "HERE");
-
   return (
     <Box>
       <Heading fontSize="2xl">{state.userArea?.address?.village}</Heading>
 
       <Box mt="3">
         <Text mb="1">
-          Kabupaten
+          Kabupaten&nbsp;
           {state.userArea?.address?.town || state.userArea.address.county}
         </Text>
         <Text mb="1">{state.userArea?.address?.state}</Text>

@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { MapContainer, TileLayer } from "react-leaflet";
-import { v4 as uuidv4 } from 'uuid';
+import { v4 as uuidv4 } from "uuid";
 import { LayerRight, DynamicMarker, Layer, LayerKab } from "./views";
 import { AppContext } from "./context";
 import { YourLocation } from "./components";
@@ -17,13 +17,13 @@ const App = () => {
       center={[-0.789275, 113.921327]}
       zoom={4.5}
     >
-      {state?.basemap === "googlemap" && (
+      {state.basemap === "googlemap" && (
         <TileLayer
           url={"http://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}"}
           subdomains={["mt0", "mt1", "mt2", "mt3"]}
         />
       )}
-      {state?.basemap === "googlesatelite" && (
+      {state.basemap === "googlesatelite" && (
         <TileLayer
           url={"http://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}"}
           subdomains={["mt0", "mt1", "mt2", "mt3"]}

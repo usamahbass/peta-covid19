@@ -24,7 +24,7 @@ const ModalInfo = ({ isOpen, onClose }: ModalProps) => {
       isOpen={isOpen}
       onClose={onClose}
       isCentered
-      size="xl"
+      size="lg"
       closeOnOverlayClick={false}
     >
       <ModalContent>

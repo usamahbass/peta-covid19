@@ -29,7 +29,7 @@ interface DrawerUserProps {
 
 const DrawerUser = ({ isOpen, onClose }: DrawerUserProps) => {
   return (
-    <Drawer onClose={onClose} isOpen={isOpen} size="md">
+    <Drawer onClose={onClose} isOpen={isOpen} variant="alwaysOpen" size="md">
       <DrawerContent>
         <DrawerHeader
           display="flex"
@@ -38,20 +38,28 @@ const DrawerUser = ({ isOpen, onClose }: DrawerUserProps) => {
         >
           <Heading size="md">Informasi Lokasi Kamu Saat Ini</Heading>
           <Box>
-            <Popover>
-              <PopoverTrigger>
-                <IconButton aria-label="info" variant="ghost" icon={<Info />} />
-              </PopoverTrigger>
-              <PopoverContent>
-                <PopoverArrow />
-                <PopoverCloseButton />
-                <PopoverHeader>Info</PopoverHeader>
-                <PopoverBody fontSize="1rem">
-                  Data di bawah ini diambil dari provinsi lokasi kamu sekarang.
-                </PopoverBody>
-              </PopoverContent>
-            </Popover>
-            <ThemeToggle />
+            <Box mr="5">
+              <Popover>
+                <PopoverTrigger>
+                  <IconButton
+                    aria-label="info"
+                    variant="ghost"
+                    icon={<Info />}
+                  />
+                </PopoverTrigger>
+                <PopoverContent>
+                  <PopoverArrow />
+                  <PopoverCloseButton />
+                  <PopoverHeader>Info</PopoverHeader>
+                  <PopoverBody fontSize="1rem">
+                    Data di bawah ini diambil dari provinsi lokasi kamu
+                    sekarang.
+                  </PopoverBody>
+                </PopoverContent>
+              </Popover>
+              <ThemeToggle />
+            </Box>
+
             <DrawerCloseButton />
           </Box>
         </DrawerHeader>

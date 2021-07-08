@@ -23,7 +23,7 @@ const DrawerInfo = ({ isOpen, onClose }: DrawerInfoProps) => {
   const { state } = useContext(AppContext);
 
   return (
-    <Drawer onClose={onClose} isOpen={isOpen} size="md">
+    <Drawer onClose={onClose} variant="alwaysOpen" isOpen={isOpen} size="md">
       <DrawerContent>
         <DrawerHeader
           display="flex"
