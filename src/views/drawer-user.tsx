@@ -39,7 +39,7 @@ const DrawerUser = ({ isOpen, onClose }: DrawerUserProps) => {
           <Heading size="md">Informasi Lokasi Kamu Saat Ini</Heading>
 
           <Box mr="5">
-            <Popover mr="3">
+            <Popover>
               <PopoverTrigger>
                 <IconButton aria-label="info" variant="ghost" icon={<Info />} />
               </PopoverTrigger>
