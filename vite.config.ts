@@ -73,18 +73,14 @@ export default ({ mode }) => {
     server: {
       proxy: {
         "/api": {
-          target:
-            process.env.NODE_ENV === "production"
-              ? process.env.VITE_APP_CORONA
-              : process.env.VITE_APP_CORONA,
+          target: process.env.VITE_APP_CORONA,
           changeOrigin: true,
+          secure: false,
         },
         "/covid19": {
-          target:
-            process.env.NODE_ENV === "production"
-              ? process.env.VITE_APP_DEKONTAMINASI
-              : process.env.VITE_APP_DEKONTAMINASI,
+          target: process.env.VITE_APP_DEKONTAMINASI,
           changeOrigin: true,
+          secure: false,
         },
       },
     },
