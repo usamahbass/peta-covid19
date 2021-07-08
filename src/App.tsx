@@ -5,7 +5,6 @@ import { LayerRight, DynamicMarker, Layer, LayerKab } from "./views";
 import { AppContext } from "./context";
 import { YourLocation } from "./components";
 import "leaflet/dist/leaflet.css";
-import "react-leaflet-markercluster/dist/styles.min.css";
 import "react-perfect-scrollbar/dist/css/styles.css";
 
 const App = () => {

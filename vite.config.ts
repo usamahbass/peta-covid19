@@ -12,8 +12,11 @@ export default ({ mode }) => {
       tsconfigPaths(),
       VitePWA({
         mode: "development",
+        srcDir: "src",
+        filename: "sw.ts",
         base: "/",
-        includeAssets: ["favicon.svg"], // <== don't add slash, for testing
+        strategies: "injectManifest",
+        includeAssets: ["/favicon.svg"],
         manifest: {
           name: "Peta Covid19",
           short_name: "petacovid19",
@@ -63,30 +66,6 @@ export default ({ mode }) => {
               src: "/src/assets/icons/icon-512x512.png",
               sizes: "512x512",
               type: "image/png",
-            },
-          ],
-        },
-        workbox: {
-          globDirectory: "/",
-          swDest: "sw.ts",
-          globPatterns: ["**/*.{html,json,js,css,ts}"],
-          runtimeCaching: [
-            {
-              // Match any request that ends with .png, .jpg, .jpeg or .svg.
-              urlPattern: /\.(?:png|jpg|jpeg|svg)$/,
-
-              // Apply a cache-first strategy.
-              handler: "CacheFirst",
-
-              options: {
-                // Use a custom cache name.
-                cacheName: "images",
-
-                // Only cache 10 images.
-                expiration: {
-                  maxEntries: 10,
-                },
-              },
             },
           ],
         },
