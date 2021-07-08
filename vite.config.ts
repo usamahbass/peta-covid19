@@ -74,11 +74,15 @@ export default ({ mode }) => {
     server: {
       proxy: {
         "/api": {
-          target: process.env.VITE_APP_CORONA,
+          target:
+            process.env.NODE_ENV === "production" &&
+            process.env.VITE_APP_CORONA,
           changeOrigin: true,
         },
         "/dekontaminasi": {
-          target: process.env.VITE_APP_DEKONTAMINASI,
+          target:
+            process.env.NODE_ENV === "production" &&
+            process.env.VITE_APP_DEKONTAMINASI,
           changeOrigin: true,
           rewrite: (path) => path.replace(/^\/dekontaminasi/, ""),
         },
