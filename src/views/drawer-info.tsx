@@ -5,7 +5,9 @@ import {
   DrawerHeader,
   DrawerBody,
   Divider,
+  Box,
   Heading,
+  DrawerCloseButton,
 } from "@chakra-ui/react";
 import PerfectScrollbar from "react-perfect-scrollbar";
 import TabsInfo from "./tabs-info";
@@ -21,7 +23,7 @@ const DrawerInfo = ({ isOpen, onClose }: DrawerInfoProps) => {
   const { state } = useContext(AppContext);
 
   return (
-    <Drawer onClose={onClose} isOpen={isOpen} size="md">
+    <Drawer onClose={onClose} variant="alwaysOpen" isOpen={isOpen} size="md">
       <DrawerContent>
         <DrawerHeader
           display="flex"
@@ -29,7 +31,10 @@ const DrawerInfo = ({ isOpen, onClose }: DrawerInfoProps) => {
           justifyContent="space-between"
         >
           <Heading size="md">Provinsi {state?.dataInfo?.key}</Heading>
-          <ThemeToggle />
+          <Box>
+            <ThemeToggle mr="10" />
+            <DrawerCloseButton />
+          </Box>
         </DrawerHeader>
         <Divider />
         <DrawerBody mt="4" as={PerfectScrollbar}>

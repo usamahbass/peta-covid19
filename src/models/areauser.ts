@@ -4,6 +4,7 @@ export type AreaUserAdress = {
   state: string;
   country: string;
   county: string;
+  postcode: string;
   country_code: string;
 };
 

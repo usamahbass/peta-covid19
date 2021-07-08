@@ -13,7 +13,7 @@ const AreaMe = () => {
 
       <Box mt="3">
         <Text mb="1">
-          Kabupaten
+          Kabupaten&nbsp;
           {state.userArea?.address?.town || state.userArea.address.county}
         </Text>
         <Text mb="1">{state.userArea?.address?.state}</Text>
@@ -23,6 +23,12 @@ const AreaMe = () => {
       {geospasialInfo && (
         <Box mt="3">
           <Divider mt="3" mb="3" />
+
+          <Box mb="2">
+            <Text>Kode pos:</Text>
+            <Text>{state.userArea.address.postcode}</Text>
+          </Box>
+
           <Box mb="2">
             <Text>Koordinat:</Text>
             <Text>
