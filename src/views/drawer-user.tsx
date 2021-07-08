@@ -37,32 +37,25 @@ const DrawerUser = ({ isOpen, onClose }: DrawerUserProps) => {
           justifyContent="space-between"
         >
           <Heading size="md">Informasi Lokasi Kamu Saat Ini</Heading>
-          <Box>
-            <Box mr="5">
-              <Popover>
-                <PopoverTrigger>
-                  <IconButton
-                    aria-label="info"
-                    variant="ghost"
-                    icon={<Info />}
-                  />
-                </PopoverTrigger>
-                <PopoverContent>
-                  <PopoverArrow />
-                  <PopoverCloseButton />
-                  <PopoverHeader>Info</PopoverHeader>
-                  <PopoverBody fontSize="1rem">
-                    Data di bawah ini diambil dari provinsi lokasi kamu
-                    sekarang.
-                  </PopoverBody>
-                </PopoverContent>
-              </Popover>
-              <ThemeToggle />
-            </Box>
 
-            <DrawerCloseButton />
+          <Box mr="5">
+            <Popover mr="3">
+              <PopoverTrigger>
+                <IconButton aria-label="info" variant="ghost" icon={<Info />} />
+              </PopoverTrigger>
+              <PopoverContent>
+                <PopoverArrow />
+                <PopoverCloseButton />
+                <PopoverHeader>Info</PopoverHeader>
+                <PopoverBody fontSize="1rem">
+                  Data di bawah ini diambil dari provinsi lokasi kamu sekarang.
+                </PopoverBody>
+              </PopoverContent>
+            </Popover>
+            <ThemeToggle ml="3" />
           </Box>
         </DrawerHeader>
+        <DrawerCloseButton position="absolute" top="20px" />
         <Divider />
         <DrawerBody mt="4" as={PerfectScrollbar}>
           <TabsUser />

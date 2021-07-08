@@ -31,11 +31,9 @@ const DrawerInfo = ({ isOpen, onClose }: DrawerInfoProps) => {
           justifyContent="space-between"
         >
           <Heading size="md">Provinsi {state?.dataInfo?.key}</Heading>
-          <Box>
-            <ThemeToggle mr="10" />
-            <DrawerCloseButton />
-          </Box>
+          <ThemeToggle mr="10" />
         </DrawerHeader>
+        <DrawerCloseButton position="absolute" top="15" />
         <Divider />
         <DrawerBody mt="4" as={PerfectScrollbar}>
           <TabsInfo />

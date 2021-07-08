@@ -24,7 +24,7 @@ const Hospitals = ({ user }: HospitalProps) => {
     loading,
     error,
   }: { data: HospitalsProps; loading: boolean; error: boolean } = useAxios(
-    "/dekontaminasi/hospitals",
+    "/covid19/hospitals",
     "dekontaminasi"
   );
   const { state } = useContext(AppContext);

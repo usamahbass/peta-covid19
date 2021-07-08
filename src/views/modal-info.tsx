@@ -34,9 +34,9 @@ const ModalInfo = ({ isOpen, onClose }: ModalProps) => {
           justifyContent="space-between"
         >
           <Text>Tentang Peta Covid</Text>
-          <ThemeToggle mr="5" />
-          <ModalCloseButton />
+          <ThemeToggle mr="6" />
         </ModalHeader>
+        <ModalCloseButton position="absolute" top="16px" />
 
         <Divider />
 
