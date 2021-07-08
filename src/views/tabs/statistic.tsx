@@ -1,4 +1,5 @@
 import { Button } from "@chakra-ui/button";
+import { Text } from "@chakra-ui/react";
 import React, { useContext, useState } from "react";
 import { useEffect } from "react";
 import {
@@ -101,14 +102,17 @@ const Statistic = ({ user }: StatisticProps) => {
       )}
 
       <Button
-        display="flex"
-        mx="auto"
+        isFullWidth
         colorScheme="info"
         variant="outline"
         onClick={() => setLoadMore(!loadMore)}
         rightIcon={loadMoreIcon}
       >
-        {loadMore ? "Cuitkan" : "Tampilkan lebih banyak statistik"}
+        {loadMore ? (
+          <Text fontSize={["sm", "md"]}>Cuitkan</Text>
+        ) : (
+          <Text fontSize={["sm", "md"]}>Tampilkan lebih banyak statistik</Text>
+        )}
       </Button>
     </>
   );

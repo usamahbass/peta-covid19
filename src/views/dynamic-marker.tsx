@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDisclosure } from "@chakra-ui/hooks";
-import MarkerCluster from "react-leaflet-markercluster";
+import { v4 as uuidv4 } from "uuid";
 import { ProvModel } from "~/models";
 import { request } from "~/utils";
 import DrawerInfo from "./drawer-info";
@@ -45,7 +45,7 @@ export const DynamicMarker = () => {
     <>
       {prov?.list_data?.map((el) => {
         if (el.lokasi) {
-          return <MarkerSwitch el={el} onOpen={onOpen} />;
+          return <MarkerSwitch key={uuidv4()} el={el} onOpen={onOpen} />;
         }
       })}
       <DrawerInfo isOpen={isOpen} onClose={onClose} />

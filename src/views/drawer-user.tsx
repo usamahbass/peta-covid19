@@ -15,6 +15,7 @@ import {
   PopoverCloseButton,
   PopoverHeader,
   PopoverBody,
+  DrawerCloseButton,
 } from "@chakra-ui/react";
 import { Info } from "react-feather";
 import PerfectScrollbar from "react-perfect-scrollbar";
@@ -51,6 +52,7 @@ const DrawerUser = ({ isOpen, onClose }: DrawerUserProps) => {
               </PopoverContent>
             </Popover>
             <ThemeToggle />
+            <DrawerCloseButton />
           </Box>
         </DrawerHeader>
         <Divider />

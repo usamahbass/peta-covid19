@@ -16,7 +16,7 @@ import Hospitals from "../tabs/hospitals";
 const TabsUser = () => {
   return (
     <Tabs variant="soft-rounded" colorScheme="primary" isLazy>
-      <TabList mb="3" as={PerfectScrollbar}>
+      <TabList mb="3" flexDirection={["column", "row"]} as={PerfectScrollbar}>
         <Tab>Daerah Kamu</Tab>
         <Tab>Covid19</Tab>
         <Tab>RS Rujukan Terdekat</Tab>

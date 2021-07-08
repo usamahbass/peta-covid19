@@ -7,6 +7,8 @@ const AreaMe = () => {
   const { state } = useContext(AppContext);
   const [geospasialInfo, setGeoSpasialInfo] = useState<boolean>(false);
 
+  console.log(state.userArea, "HERE");
+
   return (
     <Box>
       <Heading fontSize="2xl">{state.userArea?.address?.village}</Heading>
@@ -23,6 +25,12 @@ const AreaMe = () => {
       {geospasialInfo && (
         <Box mt="3">
           <Divider mt="3" mb="3" />
+
+          <Box mb="2">
+            <Text>Kode pos:</Text>
+            <Text>{state.userArea.address.postcode}</Text>
+          </Box>
+
           <Box mb="2">
             <Text>Koordinat:</Text>
             <Text>

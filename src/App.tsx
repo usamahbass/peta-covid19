@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import { MapContainer, TileLayer } from "react-leaflet";
+import { v4 as uuidv4 } from 'uuid';
 import { LayerRight, DynamicMarker, Layer, LayerKab } from "./views";
 import { AppContext } from "./context";
 import { YourLocation } from "./components";
@@ -30,8 +31,8 @@ const App = () => {
       )}
 
       {state.layer.map((el) => {
-        if (el === "batas_prov") return <Layer />;
-        if (el === "batas_kab") return <LayerKab />;
+        if (el === "batas_prov") return <Layer key={uuidv4()} />;
+        if (el === "batas_kab") return <LayerKab key={uuidv4()} />;
       })}
 
       <DynamicMarker />

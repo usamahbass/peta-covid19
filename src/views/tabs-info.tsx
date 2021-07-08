@@ -8,10 +8,10 @@ import Hospitals from "./tabs/hospitals";
 const TabsInfo = () => {
   return (
     <Tabs variant="soft-rounded" colorScheme="primary" isLazy>
-      <TabList mb="3" as={PerfectScrollbar}>
+      <TabList flexDirection={["column", "row"]} mb="3" as={PerfectScrollbar}>
         <Tab>Statistik</Tab>
         <Tab>Diagram</Tab>
-        <Tab>Rumah Sakit Rujukan</Tab>
+        <Tab>RS Rujukan</Tab>
       </TabList>
 
       <TabPanels>
