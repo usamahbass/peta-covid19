@@ -3,9 +3,26 @@ import { VitePWA } from "vite-plugin-pwa";
 import tsconfigPaths from "vite-tsconfig-paths";
 import reactRefresh from "@vitejs/plugin-react-refresh";
 
-export default ({ mode }) => {
+export default ({ command, mode }) => {
   process.env = { ...process.env, ...loadEnv(mode, process.cwd()) };
   return defineConfig({
+    server: {
+      proxy: {
+        "/api": {
+          target: process.env.VITE_APP_CORONA,
+          changeOrigin: true,
+          secure: false,
+        },
+        "/covid19": {
+          target: process.env.VITE_APP_DEKONTAMINASI,
+          changeOrigin: true,
+          secure: false,
+        },
+      },
+    },
+    define: {
+      "process.env": process.env,
+    },
     plugins: [
       reactRefresh(),
       tsconfigPaths(),
@@ -70,19 +87,5 @@ export default ({ mode }) => {
         },
       }),
     ],
-    server: {
-      proxy: {
-        "/api": {
-          target: process.env.VITE_APP_CORONA,
-          changeOrigin: true,
-          secure: false,
-        },
-        "/covid19": {
-          target: process.env.VITE_APP_DEKONTAMINASI,
-          changeOrigin: true,
-          secure: false,
-        },
-      },
-    },
   });
 };
