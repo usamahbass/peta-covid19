@@ -12,14 +12,13 @@ import {
   User,
 } from "react-feather";
 import { StatsCard } from "~/components";
+import { PROV_DATA } from "~/config/prov";
 import { AppContext } from "~/context";
 import type {
   JenisKelaminType,
   KelompokUmurType,
   ListDataType,
-  ProvModel,
 } from "~/models";
-import { request } from "~/utils";
 
 interface StatisticProps {
   user?: boolean;
@@ -34,21 +33,17 @@ const Statistic = ({ user }: StatisticProps) => {
 
   useEffect(() => {
     if (user) {
-      async function getUserCovidArea() {
-        const response = await request.get<ProvModel>("/api/prov.json");
-        const result = response.data.list_data.find(
-          (el) => el.key === state.userArea.address.state.toUpperCase()
-        );
+      const result = PROV_DATA.list_data.find(
+        (el) => el.key === state.userArea.address.state.toUpperCase()
+      );
 
-        setData(result);
-      }
-
-      getUserCovidArea();
+      setData(result);
     }
-    if (state.dataInfo) {
+    if (!user && state.dataInfo) {
       setData(state?.dataInfo);
     }
   }, [user, state.dataInfo]);
+
   return (
     <>
       <StatsCard
