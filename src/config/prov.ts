@@ -296,7 +296,6 @@ export const PROV_DATA: ProvModel = {
         meninggal: 279,
       },
     },
-    {},
     {
       key: "DAERAH ISTIMEWA YOGYAKARTA",
       doc_count: 3.282800392852044,

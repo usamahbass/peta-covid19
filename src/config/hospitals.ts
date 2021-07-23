@@ -1,3 +1,9 @@
+/**
+ * @info this data is got from @see https://dekontaminasi.com/api/id/covid19/hospitals,
+ * @info it is static data.
+ * @info for updated data you can see at @see https://dekontaminasi.com/api/id/covid19/hospitals
+ */
+
 import { HospitalsProps } from "~/models";
 
 export const HOSPITALS_DATA: HospitalsProps = [
