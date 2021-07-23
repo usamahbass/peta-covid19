@@ -23,7 +23,7 @@
 
 <br/>
 
-<h3>DATA</h3>
+<h3>Data</h3>
 <hr/>
 
 <ul>
@@ -33,6 +33,14 @@
     <li>
          GeoJSON Kab: <a href="https://github.com/rifani/geojson-political-indonesia" target="blank">https://github.com/rifani/geojson-political-indonesia</a>
     </li>
+</ul>
+
+<h3>Requirement Setup</h3>
+<hr/>
+
+<ul>
+    <li>Node v12 ++</li>
+    <li>Yarn 1.22 ++</li>
 </ul>
 
 <h3>Develop</h3>
@@ -58,3 +66,7 @@ $ yarn build
 vite build
 
 ```
+
+<h3>Licence</h3>
+
+MIT

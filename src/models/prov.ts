@@ -28,7 +28,7 @@ export type ListDataType = {
 };
 
 export type ProvModel = {
-  last_date: number;
+  last_date: string;
   current_data: number;
   missing_data: number;
   tanpa_provinsi: number;

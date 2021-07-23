@@ -3,7 +3,7 @@ import { VitePWA } from "vite-plugin-pwa";
 import tsconfigPaths from "vite-tsconfig-paths";
 import reactRefresh from "@vitejs/plugin-react-refresh";
 
-export default ({ command, mode }) => {
+export default ({ mode }) => {
   process.env = { ...process.env, ...loadEnv(mode, process.cwd()) };
   return defineConfig({
     server: {
@@ -12,12 +12,17 @@ export default ({ command, mode }) => {
           target: process.env.VITE_APP_CORONA,
           changeOrigin: true,
           secure: false,
+          ws: true,
         },
         "/covid19": {
           target: process.env.VITE_APP_DEKONTAMINASI,
           changeOrigin: true,
           secure: false,
+          ws: true,
         },
+      },
+      cors: {
+        origin: true,
       },
     },
     define: {

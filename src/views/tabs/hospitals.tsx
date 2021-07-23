@@ -10,38 +10,27 @@ import {
 } from "@chakra-ui/react";
 import { MapPin as AddressIcon, Phone as PhoneIcon } from "react-feather";
 import { AppContext } from "~/context";
-import { useAxios } from "~/hooks";
-import type { HospitalsProps } from "~/models";
 import { nullChecker } from "~/utils";
+import { HOSPITALS_DATA } from "~/config";
 
 interface HospitalProps {
   user?: boolean;
 }
 
 const Hospitals = ({ user }: HospitalProps) => {
-  const {
-    data,
-    loading,
-    error,
-  }: { data: HospitalsProps; loading: boolean; error: boolean } = useAxios(
-    "/covid19/hospitals",
-    "dekontaminasi"
-  );
   const { state } = useContext(AppContext);
 
   const hospitals =
-    data && user
-      ? data?.filter((el) => el.province === state.userArea.address.state)
-      : data?.filter(
+    HOSPITALS_DATA && user
+      ? HOSPITALS_DATA?.filter(
+          (el) => el.province === state.userArea.address.state
+        )
+      : HOSPITALS_DATA?.filter(
           (el) => el?.province.toUpperCase() === state?.dataInfo?.key
         );
 
-  if (loading) {
+  if (!hospitals) {
     return <Spinner display="block" mx="auto" mt="5" />;
-  }
-
-  if (error) {
-    return <Text align="left">maaf, server error.</Text>;
   }
 
   if (hospitals?.length <= 0) {
