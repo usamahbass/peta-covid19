@@ -26,7 +26,7 @@ const MarkerSwitch = ({ el, onOpen }: MarkerSwitchProps) => {
           position={[el.lokasi?.lat, el.lokasi?.lon]}
           eventHandlers={{
             click: (e) => {
-              map.flyTo(e.latlng, 10);
+              map.flyTo(e.latlng, 8);
               onOpen();
               dispatch(setDataInfo(el));
             },
@@ -40,7 +40,7 @@ const MarkerSwitch = ({ el, onOpen }: MarkerSwitchProps) => {
           center={[el.lokasi?.lat, el.lokasi?.lon]}
           eventHandlers={{
             click: (e) => {
-              map.flyTo(e.latlng, 10);
+              map.flyTo(e.latlng, 8);
               onOpen();
               dispatch(setDataInfo(el));
             },
@@ -56,7 +56,7 @@ const MarkerSwitch = ({ el, onOpen }: MarkerSwitchProps) => {
           position={[el.lokasi?.lat, el.lokasi?.lon]}
           eventHandlers={{
             click: (e) => {
-              map.flyTo(e.latlng, 10);
+              map.flyTo(e.latlng, 8);
               onOpen();
               dispatch(setDataInfo(el));
             },
@@ -71,7 +71,7 @@ const MarkerSwitch = ({ el, onOpen }: MarkerSwitchProps) => {
           center={[el.lokasi?.lat, el.lokasi?.lon]}
           eventHandlers={{
             click: (e) => {
-              map.flyTo(e.latlng, 10);
+              map.flyTo(e.latlng, 8);
               onOpen();
               dispatch(setDataInfo(el));
             },

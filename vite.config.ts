@@ -5,8 +5,29 @@ import reactRefresh from "@vitejs/plugin-react-refresh";
 
 export default ({ mode }) => {
   process.env = { ...process.env, ...loadEnv(mode, process.cwd()) };
-
   return defineConfig({
+    server: {
+      proxy: {
+        "/api": {
+          target: process.env.VITE_APP_CORONA,
+          changeOrigin: true,
+          secure: false,
+          ws: true,
+        },
+        "/covid19": {
+          target: process.env.VITE_APP_DEKONTAMINASI,
+          changeOrigin: true,
+          secure: false,
+          ws: true,
+        },
+      },
+      cors: {
+        origin: true,
+      },
+    },
+    define: {
+      "process.env": process.env,
+    },
     plugins: [
       reactRefresh(),
       tsconfigPaths(),
@@ -71,18 +92,5 @@ export default ({ mode }) => {
         },
       }),
     ],
-    server: {
-      proxy: {
-        "/api": {
-          target: process.env.VITE_APP_CORONA,
-          changeOrigin: true,
-        },
-        "/dekontaminasi": {
-          target: process.env.VITE_APP_DEKONTAMINASI,
-          changeOrigin: true,
-          rewrite: (path) => path.replace(/^\/dekontaminasi/, ""),
-        },
-      },
-    },
   });
 };

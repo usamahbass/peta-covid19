@@ -4,12 +4,10 @@
 
 <img src="./src/assets/jpg/petacovid.jpg" />
 
-<h3>DEMO<h3>
-<a href="https://petacovid19.vercel.app">https://petacovid19.vercel.app</a>
-
 <br/>
 
 <h3>API</h3>
+<hr/>
 
 <ul>
     <li>
@@ -25,7 +23,8 @@
 
 <br/>
 
-<h3>DATA</h3>
+<h3>Data</h3>
+<hr/>
 
 <ul>
     <li>
@@ -35,3 +34,39 @@
          GeoJSON Kab: <a href="https://github.com/rifani/geojson-political-indonesia" target="blank">https://github.com/rifani/geojson-political-indonesia</a>
     </li>
 </ul>
+
+<h3>Requirement Setup</h3>
+<hr/>
+
+<ul>
+    <li>Node v12 ++</li>
+    <li>Yarn 1.22 ++</li>
+</ul>
+
+<h3>Develop</h3>
+<hr/>
+
+```bash
+# install
+$ yarn
+
+# development build
+yarn dev
+# or
+vite
+
+# development and expost it
+yarn dev --host
+# or
+vite --host
+
+# production build
+$ yarn build
+# or
+vite build
+
+```
+
+<h3>Licence</h3>
+
+MIT
